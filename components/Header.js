@@ -4,9 +4,11 @@ const Header = () => {
     return (
         <div>
             <h1 className={headerStyles.title}>
-                <span>WebDev</span> News
+                <span>Ten Jack</span> Home Inspections
             </h1>
-            <p className={headerStyles.a}>Schedule an appointment today!</p>
+            <p className={headerStyles.description}>
+                Schedule an appointment today!
+            </p>
         </div>
     )
 }

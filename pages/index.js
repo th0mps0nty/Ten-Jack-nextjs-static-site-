@@ -1,8 +1,7 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import ArticleList from '../components/ArticleList'
 
-export default function Home({articles}) {
-    console.log(articles)
+export default function Home({ articles }) {
     return (
         <div>
             <Head>
@@ -12,23 +11,20 @@ export default function Home({articles}) {
                     content="home inspections, home inspection, house inspection"
                 />
             </Head>
-            <h1>Welcome to Next</h1>
+            <ArticleList articles={articles} />
         </div>
     )
 }
 
-// Three separate methods we can use to fetch data with NextJS
-// 1 - getStaticProps - fetch data at buildtime
-// 2 - getServerSideProps - fetch data on each request
-// 3 - getStaticPaths - dynamically generate paths to generate data
-
 export const getStaticProps = async () => {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=6`)
-    const articles = await res.json();
+    const res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts?_limit=6`,
+    )
+    const articles = await res.json()
 
     return {
         props: {
-            articles
-        }
+            articles,
+        },
     }
 }
